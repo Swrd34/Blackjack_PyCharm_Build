@@ -1,3 +1,3 @@
-# Blackjack_PyCharm_Build
-A simple program for playing American blackjack
-Currently in Development
+A simple program for playing American blackjack. <br>
+Currently in Development. <br>
+Thank you for playing/contributions!
