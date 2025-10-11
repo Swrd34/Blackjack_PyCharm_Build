@@ -34,12 +34,13 @@ deck = {"Ace of Hearts": 1, "Ace of Spades": 1, "Ace of Clubs": 1, "Ace of Diamo
         "Queen of Hearts": 10, "Queen of Spades": 10, "Queen of Clubs": 10, "Queen of Diamonds": 10,
         "King of Hearts": 10, "King of Spades": 10, "King of Clubs": 10, "King of Diamonds": 10}
 
-x = random.randint(0,51)
+x = random.randint(0,52)
 deckCardNumber = list(deck.values())
 deckCardName = list(deck.keys())
 
 print(deckCardNumber[x])
 print(deckCardName[x])
+
 
 
 
