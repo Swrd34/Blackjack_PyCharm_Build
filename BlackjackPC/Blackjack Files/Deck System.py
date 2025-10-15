@@ -1,4 +1,4 @@
-import random  #For random pulling of cards
+import random
 deck = {"Ace of Hearts": 1, "Ace of Spades": 1, "Ace of Clubs": 1, "Ace of Diamonds": 1,  #Full deck of cards
         "2 of Hearts": 2, "2 of Spades": 2, "2 of Clubs": 2, "2 of Diamonds": 2,
         "3 of Hearts": 3, "3 of Spades": 3, "3 of Clubs": 3, "3 of Diamonds": 3,
