@@ -21,6 +21,9 @@ def pull_Card_Test():
     """Pulls a random card from the deck without changing the amount of values in deck. This returns a tuple"""
     x = random.randint(0, 52) #Random range of the 52 cards in the deck
     return deckCardName[x], deckCardValue[x]
+pullcardtest1name, pullcardtest1value = pull_Card1() #Unpacks Tuple made in the pull_Card1 function
+print(pullcardtest1name)
+print(pullcardtest1value)
 
 def pull_Card_Remove():
     """Pulls a card out of the deck and removes that card from the deck dictionary"""
