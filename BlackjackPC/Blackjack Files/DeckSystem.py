@@ -25,7 +25,7 @@ def pull_Card_Test():
 pull1name, pull1value = pull_Card1() #Unpacks Tuple made in the pull_Card1 function
 
 
-def pull_Card_Remove():
+def pull_Card_2():
     """Pulls a card out of the deck and removes that card from the deck dictionary"""
     return 0
 
