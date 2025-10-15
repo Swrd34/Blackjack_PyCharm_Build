@@ -13,7 +13,7 @@ deck = {"Ace of Hearts": 1, "Ace of Spades": 1, "Ace of Clubs": 1, "Ace of Diamo
         "Queen of Hearts": 10, "Queen of Spades": 10, "Queen of Clubs": 10, "Queen of Diamonds": 10,
         "King of Hearts": 10, "King of Spades": 10, "King of Clubs": 10, "King of Diamonds": 10}
 
-deckCardValue = list(deck.values())  # x card number
+deckCardValue = list(deck.values())  # Converts deck.values to a list and assigns it to deckCardValue
 deckCardName = list(deck.keys())  # x card name
 
 
