@@ -19,7 +19,7 @@ deckCardName = list(deck.keys())  # x Converts deck.keys to a list and assigns i
 
 def pull_Card_Test():
     """Pulls a random card from the deck without changing the amount of values in deck. This returns a tuple"""
-    x = random.randint(0, 52) #Random range of the 52 cards in the deck
+    x = random.randint(0,len(deck)-1) #Range between 0 and the amount of cards in deck
     return deckCardName[x], deckCardValue[x]
 
 pullcardtest1name, pullcardtest1value = pull_Card1() #Unpacks Tuple made in the pull_Card1 function
