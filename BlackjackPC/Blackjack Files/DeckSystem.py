@@ -27,7 +27,10 @@ pull1name, pull1value = pull_Card1() #Unpacks Tuple made in the pull_Card1 funct
 
 def pull_Card_2():
     """Pulls a card out of the deck and removes that card from the deck dictionary"""
-    return 0
+    x = random.randint(0,len(deck)-1)
+    return deckCardName[x], deckCardValue[x]
+
+print(pull_Card_2())
 
 
 
