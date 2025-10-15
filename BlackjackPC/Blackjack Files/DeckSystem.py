@@ -22,7 +22,7 @@ def pull_Card_Test():
     x = random.randint(0,len(deck)-1) #Range between 0 and the amount of cards in deck
     return deckCardName[x], deckCardValue[x]
 
-pullcardtest1name, pullcardtest1value = pull_Card1() #Unpacks Tuple made in the pull_Card1 function
+pull1name, pull1value = pull_Card1() #Unpacks Tuple made in the pull_Card1 function
 
 
 def pull_Card_Remove():
