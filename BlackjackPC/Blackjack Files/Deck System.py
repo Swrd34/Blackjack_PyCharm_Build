@@ -14,7 +14,7 @@ deck = {"Ace of Hearts": 1, "Ace of Spades": 1, "Ace of Clubs": 1, "Ace of Diamo
         "King of Hearts": 10, "King of Spades": 10, "King of Clubs": 10, "King of Diamonds": 10}
 
 deckCardValue = list(deck.values())  # Converts deck.values to a list and assigns it to deckCardValue
-deckCardName = list(deck.keys())  # x card name
+deckCardName = list(deck.keys())  # x Converts deck.keys to a list and assigns it to deckCardName
 
 
 def pull_Card_Test():
