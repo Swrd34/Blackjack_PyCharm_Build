@@ -31,6 +31,9 @@ def deal_Card():
     deck.pop(pulledCardName) #Removes the card that was pulled from the deck.
     return 0
 
+def deck_Count(): #Function for debugging purposes.
+    """Count Cards in the deck"""
+    return len(deck)
 
 
 def remove_Card():
