@@ -16,7 +16,6 @@ deck = {"Ace of Hearts": 1, "Ace of Spades": 1, "Ace of Clubs": 1, "Ace of Diamo
 deckCardValue = list(deck.values())  # Converts deck.values to a list and assigns it to deckCardValue
 deckCardName = list(deck.keys())  # x Converts deck.keys to a list and assigns it to deckCardName
 
-
 def pull_Card():
     """Pulls a random card from the deck without changing the amount of values in deck. This returns a tuple"""
     x = random.randint(0,len(deck)-1) #Range between 0 and the amount of cards in deck
