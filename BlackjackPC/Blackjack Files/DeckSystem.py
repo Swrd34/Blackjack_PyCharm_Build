@@ -22,6 +22,14 @@ def pull_Card():
     x = random.randint(0,len(deck)-1) #Range between 0 and the amount of cards in deck
     return deckCardName[x], deckCardValue[x] #Return the card name and card value (Key and value pair)
 
+def deal_Card():
+    """Prints card out to the player"""
+    pulledCardName, pulledCardVal = pull_Card()
+    print(f"You pulled the card: {pulledCardName}!")
+    print(f"It's value is {pulledCardVal}!")
+    print(f"{pulledCardName} was removed from the deck!")
+    deck.pop(pulledCardName)
+    return 0
 
 
 
