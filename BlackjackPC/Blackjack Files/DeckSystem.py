@@ -22,7 +22,7 @@ def pull_Card():
     return deckCardName[x], deckCardValue[x] #Return the card name and card value (Key and value pair)
 
 def deal_Card():
-    """Print's card to player screen and removes the card from the deck"""
+    """Prints card to player screen and removes the card from the deck"""
     pulledCardName, pulledCardVal = pull_Card() #Unpacks the tuple made in pull_Card so that the name/value can be outputted independently
     print(f"You pulled the card: {pulledCardName}!")
     print(f"It's value is {pulledCardVal}!")
