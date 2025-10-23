@@ -28,7 +28,7 @@ def deal_Card():
     print(f"You pulled the card: {pulledCardName}!")
     print(f"It's value is {pulledCardVal}!")
     print(f"{pulledCardName} was removed from the deck!")
-    deck.pop(pulledCardName)
+    deck.pop(pulledCardName) #Removes the card that was pulled from the deck.
     return 0
 
 
