@@ -13,8 +13,6 @@ deck = {"Ace of Hearts": 1, "Ace of Spades": 1, "Ace of Clubs": 1, "Ace of Diamo
         "Queen of Hearts": 10, "Queen of Spades": 10, "Queen of Clubs": 10, "Queen of Diamonds": 10,
         "King of Hearts": 10, "King of Spades": 10, "King of Clubs": 10, "King of Diamonds": 10}
 
-deckCardValue = list(deck.values())  # Converts deck.values to a list and assigns it to deckCardValue
-deckCardName = list(deck.keys())  # x Converts deck.keys to a list and assigns it to deckCardName
 
 def pull_Card():
     """Pulls a random card from the deck without changing the amount of values in deck. This returns a tuple"""
@@ -25,16 +23,19 @@ def pull_Card():
 
 def deal_Card():
     """Prints card to player screen and removes the card from the deck"""
-    pulledCardName, pulledCardVal = pull_Card() #Unpacks the tuple made in pull_Card so that the name/value can be outputted independently
-    print(f"You pulled the card: {pulledCardName}!")
-    print(f"It's value is {pulledCardVal}!")
-    print(f"{pulledCardName} was removed from the deck!")
-    deck.pop(pulledCardName) #Removes the card that was pulled from the deck.
-    return 0
+    if(len(deck) == 0) :
+        print("All cards gone.")
+    else:
+        pulledCardName, pulledCardVal = pull_Card() #Unpacks the tuple made in pull_Card so that the name/value can be outputted independently
+        print(f"You pulled the card: {pulledCardName}!")
+        print(f"It's value is {pulledCardVal}!")
+        print(f"{pulledCardName} was removed from the deck!")
+        deck.pop(pulledCardName) #Removes the card that was pulled from the deck.
+        return 0
 
 def deck_Count(): #Function for debugging purposes.
     """Count Cards in the deck"""
-    return len(deck)
+    print("Cards left: ", len(deck))
 
 
 def clear_Deck(): #Clearing deck after a finished round of blackjack

@@ -1,11 +1,7 @@
 import DeckSystem
-print("--------------First Pull----------------")
-print(DeckSystem.deck_Count())
-DeckSystem.deal_Card()
-print("--------------First Pull----------------\n\n")
-print("--------------Second Pull----------------")
-DeckSystem.deal_Card()
-print(DeckSystem.deck_Count())
-print("--------------Second Pull----------------")
-
+i = 0
+while i < 52:
+    DeckSystem.deal_Card()
+    DeckSystem.deck_Count()
+    i += 1
 
