@@ -18,6 +18,8 @@ deckCardName = list(deck.keys())  # x Converts deck.keys to a list and assigns i
 
 def pull_Card():
     """Pulls a random card from the deck without changing the amount of values in deck. This returns a tuple"""
+    deckCardName = list(deck.keys()) # x Converts deck.keys to a list and assigns it to deckCardName
+    deckCardValue = list(deck.values())  # Converts deck.values to a list and assigns it to deckCardValue
     x = random.randint(0,len(deck)-1) #Range between 0 and the amount of cards in deck
     return deckCardName[x], deckCardValue[x] #Return the card name and card value (Key and value pair)
 
