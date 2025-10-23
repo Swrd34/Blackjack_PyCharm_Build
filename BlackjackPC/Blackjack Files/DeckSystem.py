@@ -24,7 +24,7 @@ def pull_Card():
         print(pull_Card1())
     return deckCardName[x], deckCardValue[x]
 
-pull1name, pull1value = pull_Card1() #Unpacks Tuple made in the pull_Card1 function
+
 
 
 def remove_Card():
