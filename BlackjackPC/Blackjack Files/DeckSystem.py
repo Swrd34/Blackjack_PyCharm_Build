@@ -36,14 +36,10 @@ def deck_Count(): #Function for debugging purposes.
     return len(deck)
 
 
-def remove_Card():
-    """Pulls a card out of the deck and removes that card from the deck dictionary"""
-    x = random.randint(0,len(deck)-1)
-    if __name__ == "__main__" :
-        print(pull_Card2())
-    return deckCardName[x], deckCardValue[x]
-
-print(pull_Card_2())
+def clear_Deck(): #Clearing deck after a finished round of blackjack
+    """Clears all elements in deck"""
+    deck.clear()
+    return 0
 
 
 
