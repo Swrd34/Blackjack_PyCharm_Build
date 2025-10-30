@@ -1,7 +1,6 @@
-import DeckSystem
-i = 0
-while i < 52:
-    DeckSystem.deal_Card()
-    DeckSystem.deck_Count()
-    i += 1
+import deck_system
+import utils
+import globals
 
+deck_system.deal_cards()
+utils.calc_hand(globals.cards_in_hand_vals)
