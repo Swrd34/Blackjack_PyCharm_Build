@@ -1,5 +1,5 @@
-import deck_system
 import utils
+import deck_system
 import globals
 
 
@@ -10,7 +10,7 @@ def main():
     print(">Play Game\n"
           ">About\n"
           ">Exit\n")
-    choice = (input().lower()).replace(" ", "")
+    choice = (input().lower()).replace(" ", "") #Turns variable into all lowercase, removes spaces. Should probably concise this into a function
 
     while choice not in ["playgame", "about", "exit"]:
         print("Invalid input. Try Again.")
@@ -29,18 +29,19 @@ def main():
 
 
 def about():
-    """About function"""
+    """About section"""
     print("This is a little blackjack game I made to get some experience with programming in python! I hope you enjoy playing it as much as I enjoyed making it!")
 
     main()
 
 
 def start_game():
+    """Starts game"""
     print("Dealing cards", end="")
 
     utils.load()
 
-    globals.cards = []
+    globals.cards = [] #Setting all the globals to their default vales
     globals.card_vals = []
     globals.win_flag = False
     globals.lose_flag = False

@@ -46,7 +46,7 @@ def hit():
     print(f"You drew: {card_draw_name}")
     globals.cards.append(card_draw_name) #Appends a card to the global hand variable
     globals.card_vals.append(card_draw_val) #Appends a card value to the global hand vals variable
-    return card_draw_name 
+    return card_draw_name
 
 def stand():
     pass
@@ -77,7 +77,16 @@ def deal_all_cards():
     while len(deck) != 0 :
         deal_cards()
 
-
+def give_card(x):
+        if x > (len(deck)-1):
+            print("Out of range")
+        else:
+            deck_card_name = list(deck.keys())
+            deck_card_value = list(deck.values())
+            deck.pop(deck_card_name[x])
+            globals.cards.append(deck_card_name[x])
+            globals.card_vals.append(deck_card_value[x])
+            return deck_card_name[x], deck_card_value[x]
 
 
 
