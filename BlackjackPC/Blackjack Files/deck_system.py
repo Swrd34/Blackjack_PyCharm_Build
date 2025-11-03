@@ -46,7 +46,16 @@ def hit():
     print(f"You drew: {card_draw_name}")
     globals.cards_in_hand.append(card_draw_name) #Appends a card to the global hand variable
     globals.cards_in_hand_vals.append(card_draw_val) #Appends a card value to the global hand vals variable
-    return None #No return yet
+    return card_draw_name #No return yet
+
+def stand():
+    pass
+
+def display_hand():
+    print("You have the cards: ")
+    for card in globals.cards_in_hand:
+        print(card)
+    print(f"Their values total to: {utils.calc_hand(globals.cards_in_hand_vals)}")
 
 """
 -------------------------------------------------Debug Functions:-------------------------------------------------------
