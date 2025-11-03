@@ -47,3 +47,6 @@ def start_game():
 
 deck_system.deal_cards()
 utils.calc_hand(globals.cards_in_hand_vals)
+
+
+main()
