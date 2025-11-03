@@ -56,7 +56,7 @@ def display_hand():
     globals.hand_val = utils.calc_hand(globals.card_vals)
     for card in globals.cards:
         print(card)
-    print(f"Their values total to: {utils.calc_hand(globals.card_vals)}")
+    print(f"Their values total to: {globals.hand_val}")
 
 
 """
