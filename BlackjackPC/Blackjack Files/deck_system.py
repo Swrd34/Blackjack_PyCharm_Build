@@ -53,6 +53,7 @@ def stand():
 
 def display_hand():
     print("You have the cards: ")
+    globals.hand_val = utils.calc_hand(globals.card_vals)
     for card in globals.cards:
         print(card)
     print(f"Their values total to: {utils.calc_hand(globals.card_vals)}")
