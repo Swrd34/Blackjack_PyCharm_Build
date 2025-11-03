@@ -24,7 +24,7 @@ def pull_card():
     deck_card_name = list(deck.keys()) # x Converts deck.keys to a list and assigns it to deckCardName
     deck_card_value = list(deck.values())  # Converts deck.values to a list and assigns it to deckCardValue
     x = random.randint(0,len(deck)-1) #Range between 0 and the amount of cards in deck
-    deck.pop(deck_card_name[x], deck_card_value[x])
+    deck.pop(deck_card_name[x])
     return deck_card_name[x], deck_card_value[x] #Return the card name and card value (Key and value pair)
 
 def deal_cards():
