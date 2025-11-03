@@ -33,12 +33,9 @@ def deal_cards():
         pulled_card_name1, pulled_card_val1 = pull_card()# Pulls first card. Unpacks the tuple made in pull_Card so that the name/value can be outputted independently
         pulled_card_name2, pulled_card_val2 = pull_card() #Pulls second card
 
-        print(f"Your cards are: {pulled_card_name1} and {pulled_card_name2}")
-
-
-        globals.cards_in_hand.extend(list((pulled_card_name1, pulled_card_name2))) #Extend here to add one element at a time so that we don't have any nested lists
-        globals.cards_in_hand_vals.extend(list((pulled_card_val1,pulled_card_val2))) #Same for card value
-        return globals.cards_in_hand, globals.cards_in_hand_vals
+        globals.cards.extend(list((pulled_card_name1, pulled_card_name2))) #Extend here to add one element at a time so that we don't have any nested lists
+        globals.cardvals.extend(list((pulled_card_val1,pulled_card_val2))) #Same for card value
+        return globals.cards, globals.cardvals
 
 def hit():
     """Adds card to player hand"""
