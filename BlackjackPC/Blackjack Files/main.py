@@ -45,8 +45,27 @@ def start_game():
     globals.win_flag = False
     globals.lose_flag = False
 
-deck_system.deal_cards()
-utils.calc_hand(globals.cards_in_hand_vals)
+    deck_system.deal_cards() # Deal first 2 cards
+    deck_system.display_hand()
+
+    game_state() # Starting gameplay loop
+
+def game_state():
+    """Function that handles the loop of gameplay until a lose or a win condition is hit."""
+    utils.load()
+    while globals.win_flag != True and globals.lose_flag != True:
+        print("Would you like to hit or stand?")
+        choice = (input().lower()).replace(" ", "")
+        while choice not in ["hit", "stand"]:
+            print("Invalid input. Try Again.")
+            choice = input()
+        if choice == "hit":
+            deck_system.hit()
+        else:
+            deck_system.stand()
+
+    deck_system.deal_cards()
+    deck_system.display_hand()
 
 
 main()
