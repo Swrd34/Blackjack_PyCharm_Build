@@ -44,8 +44,8 @@ def hit():
     """Adds card to player hand"""
     card_draw_name, card_draw_val = pull_card() #Pulls card, unpacks tuple.
     print(f"You drew: {card_draw_name}")
-    globals.cards_in_hand.append(card_draw_name) #Appends a card to the global hand variable
-    globals.cards_in_hand_vals.append(card_draw_val) #Appends a card value to the global hand vals variable
+    globals.cards.append(card_draw_name) #Appends a card to the global hand variable
+    globals.cardvals.append(card_draw_val) #Appends a card value to the global hand vals variable
     return card_draw_name #No return yet
 
 def stand():
