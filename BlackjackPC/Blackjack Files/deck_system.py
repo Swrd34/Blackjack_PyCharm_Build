@@ -55,7 +55,8 @@ def display_hand():
     print("You have the cards: ")
     for card in globals.cards_in_hand:
         print(card)
-    print(f"Their values total to: {utils.calc_hand(globals.cards_in_hand_vals)}")
+    print(f"Their values total to: {utils.calc_hand(globals.cardvals)}")
+
 
 """
 -------------------------------------------------Debug Functions:-------------------------------------------------------
