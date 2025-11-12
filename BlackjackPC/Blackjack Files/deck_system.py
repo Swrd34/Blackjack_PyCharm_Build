@@ -78,7 +78,8 @@ def deal_all_cards():
         deal_cards()
 
 def give_card(x):
-        if x > (len(deck)-1):
+    """Gives card by dict value"""
+    if x > (len(deck)-1):
             print("Out of range")
         else:
             deck_card_name = list(deck.keys())
