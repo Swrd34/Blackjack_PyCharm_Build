@@ -1,4 +1,5 @@
 from time import sleep
+
 def calc_hand(values):
     """Calculates the total value of a hand"""
     total = sum(values)
