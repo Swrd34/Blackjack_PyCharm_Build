@@ -16,7 +16,7 @@ def load():
 
 def get_user_input(choice_list: list[str]):
     """Checks if user input matches given parameters and loops till it does"""
-    user_choice = (input().lower()).replace(" ", "") #Keeps user input not case sensitive and removes whitespace
+    user_choice = (input().lower()).replace(" ", "") #Keeps user input not case-sensitive and removes whitespace
     while user_choice not in choice_list:
         print(f"Invalid input. Try Again. Your choice: {user_choice}")
         user_choice = (input().lower()).replace(" ", "")
