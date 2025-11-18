@@ -56,7 +56,7 @@ def display_hand():
     globals.hand_val = utils.calc_hand(globals.card_vals)
     for card in globals.cards:
         print(card)
-    print(f"Their values total to: {globals.hand_val}")
+    print(f"Their values' total to: {globals.hand_val}")
 
 
 """
@@ -81,13 +81,13 @@ def give_card(x):
     """Gives card by dict value"""
     if x > (len(deck)-1):
             print("Out of range")
-        else:
-            deck_card_name = list(deck.keys())
-            deck_card_value = list(deck.values())
-            deck.pop(deck_card_name[x])
-            globals.cards.append(deck_card_name[x])
-            globals.card_vals.append(deck_card_value[x])
-            return deck_card_name[x], deck_card_value[x]
+    else:
+        deck_card_name = list(deck.keys())
+        deck_card_value = list(deck.values())
+        deck.pop(deck_card_name[x])
+        globals.cards.append(deck_card_name[x])
+        globals.card_vals.append(deck_card_value[x])
+        return deck_card_name[x], deck_card_value[x]
 
 
 

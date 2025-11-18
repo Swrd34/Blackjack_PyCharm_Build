@@ -4,35 +4,27 @@ import globals
 
 
 def main():
-    """Main menu"""
-    print("\033[97mWelcome to Swrd's BlackJack Sim! Have fun!\n\033[97m")
-    print("Where would you like to go?")
-    print(">Play Game\n"
-          ">About\n"
-          ">Exit\n")
-    choice = (input().lower()).replace(" ", "") #Turns variable into all lowercase, removes spaces. Should probably concise this into a function
+    utils.main_menu()
 
-    while choice not in ["playgame", "about", "exit"]:
-        print("Invalid input. Try Again.")
-        choice = input()
+    choice = utils.get_user_input(["exit", "playgame", "about"])
 
-    if choice == "exit":
-        quit()
+    while choice != "playgame" or choice != "exit":
+        if choice == "exit":
+            quit()
 
-    elif choice == "playgame":
-        start_game()
+        elif choice == "playgame":
+            start_game()
 
 
-    elif choice == "about":
-        about()
-        pass
+        elif choice == "about":
+            utils.about()
+            pass
+
+        choice = utils.get_user_input(["exit", "playgame", "about"])
+    print("End of main")
+    quit()
 
 
-def about():
-    """About section"""
-    print("This is a little blackjack game I made to get some experience with programming in python! I hope you enjoy playing it as much as I enjoyed making it!")
-
-    main()
 
 
 def start_game():
@@ -56,10 +48,7 @@ def game_state():
     utils.load()
     while globals.win_flag != True and globals.lose_flag != True:
         print("Would you like to hit or stand?")
-        choice = (input().lower()).replace(" ", "")
-        while choice not in ["hit", "stand"]:
-            print("Invalid input. Try Again.")
-            choice = input()
+        choice = utils.get_user_input(["hit", "stand"])
         if choice == "hit":
             deck_system.hit()
         else:
@@ -68,5 +57,4 @@ def game_state():
     deck_system.deal_cards()
     deck_system.display_hand()
 
-
-main()
+start_game()
