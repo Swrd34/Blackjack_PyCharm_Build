@@ -1,27 +1,42 @@
+import time
+import dealer_system
 import utils
 import deck_system
 import globals
 
-
 def main():
-    utils.main_menu()
+    """Handles all function calling"""
+    while True:
+        utils.clear_console()
+        utils.main_menu()
 
-    choice = utils.get_user_input(["exit", "playgame", "about"])
+        choice = utils.get_user_input(["exit", "playgame", "about"])
 
-    while choice != "playgame" or choice != "exit":
-        if choice == "exit":
-            quit()
-
-        elif choice == "playgame":
+        if choice == "playgame":
             start_game()
+            utils.end_game_menu()
+            choice = utils.get_user_input(["replay", "mainmenu", "exit"])
+
+            if choice == "replay":
+                start_game()
+            elif choice == "mainmenu":
+                break
+            else:
+                utils.clear_console()
+                print("Thanks for playing!")
+                time.sleep(2)
+                quit()
 
 
         elif choice == "about":
             utils.about()
-            pass
 
-        choice = utils.get_user_input(["exit", "playgame", "about"])
-    print("End of main")
+        elif choice == "exit":
+            break
+    utils.clear_console()
+    print("Thanks for playing!")
+    time.sleep(2)
+    input() # wait
     quit()
 
 
@@ -29,32 +44,63 @@ def main():
 
 def start_game():
     """Starts game"""
+    utils.clear_console()
     print("Dealing cards", end="")
+    utils.load(.5)
 
-    utils.load()
+    # Setting all the globals to their default vales
+    globals.player_card_names.clear()
+    globals.player_card_vals.clear()
+    globals.dealer_card_names.clear()
+    globals.dealer_card_vals.clear()
 
-    globals.cards = [] #Setting all the globals to their default vales
-    globals.card_vals = []
-    globals.win_flag = False
-    globals.lose_flag = False
+    deck_system.deal_cards() # Deal first 2 cards to dealer and player
 
-    deck_system.deal_cards() # Deal first 2 cards
+
+    globals.player_hand_val = utils.calc_hand(globals.player_card_vals) #Calc Hand Value
+    globals.dealer_hand_val = utils.calc_hand(globals.dealer_card_vals)
+
+    dealer_system.display_hand_hidden()
+    print("\n")
+    utils.load(.5)
+    print("\n")
     deck_system.display_hand()
+
+    if globals.player_hand_val == 21 and globals.dealer_hand_val != 21: #Check if initial hand is already 21
+        print("\n\nBlackjack! You win!")
+        return
+
+    elif globals.player_hand_val == 21 and globals.dealer_hand_val == 21: #Check if initial hand is already 21 and dealer has 21
+            print("\n\nPush. Both player and dealer have 21.")
+            return
+
+
 
     game_state() # Starting gameplay loop
 
 def game_state():
-    """Function that handles the loop of gameplay until a lose or a win condition is hit."""
-    utils.load()
-    while globals.win_flag != True and globals.lose_flag != True:
-        print("Would you like to hit or stand?")
+    """."""
+    while globals.player_hand_val < 21 and globals.player_hand_val != 21: #While player has not lost or won
+        print("\n\nWould you like to hit or stand?")
         choice = utils.get_user_input(["hit", "stand"])
         if choice == "hit":
+            utils.clear_console()
             deck_system.hit()
-        else:
-            deck_system.stand()
+            if globals.player_hand_val > 21: #If after hitting the player busts
+                print("Bust! You went over 21.")
+                input()
+                return
+            elif globals.player_hand_val == 21:
+                print("Blackjack! You win!")
+                input()
+                return
+        if choice == "stand":
+            pass
 
-    deck_system.deal_cards()
-    deck_system.display_hand()
 
-start_game()
+
+
+
+
+
+main()
