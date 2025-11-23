@@ -89,7 +89,7 @@ def give_card(x):
         globals.card_vals.append(deck_card_value[x])
         return deck_card_name[x], deck_card_value[x]
 
-
+#
 
 
 
