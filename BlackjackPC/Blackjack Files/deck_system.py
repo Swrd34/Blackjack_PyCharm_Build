@@ -1,7 +1,7 @@
 import random
 import globals
 import utils
-import dealer_system
+import colors as c
 deck = {"♥A": 1, "♦A": 1, "♣A": 1, "♠A": 1,  #Full deck of cards
         "♥2": 2, "♦2": 2, "♣2": 2, "♠2": 2,
         "♥3": 3, "♦3": 3, "♣3": 3, "♠3": 3,
@@ -63,51 +63,31 @@ def hit():
     return card_draw_name
 
 def stand():
-    """Stops """
+    """Player stands"""
     print("Standing", end="")
     utils.load(0.5)
     utils.clear_console()
-    dealer_system.dealer_play()
-
-
-    pass
 
 def display_hand():
+    """Displays player hand"""
     globals.player_hand_val = utils.calc_hand(globals.player_card_vals) #Calc Hand Value
-    print("You have the cards: ")
+    print(f"You have the cards: ")
     print(f"{globals.player_card_names[0]} and {globals.player_card_names[1]}")
     print(f"Their values' total to: {globals.player_hand_val}")
 
-
-
-
-"""
--------------------------------------------------Debug Functions:-------------------------------------------------------
-"""
-
-def deck_count():
-    """Count Cards in the deck"""
-    print("Cards left: ", len(deck))
-
-def clear_deck():
-    """Clears all elements in deck"""
-    deck.clear()
-    return 0
-
-def deal_all_cards():
-    """Deals all cards in the deck"""
-    while len(deck) != 0 :
-        deal_cards()
-
-def give_card(x):
-    """Gives card by dict value"""
-    if x > (len(deck)-1):
-            print("Out of range")
-            return None
-    else:
-        deck_card_name = list(deck.keys())
-        deck_card_value = list(deck.values())
-        deck.pop(deck_card_name[x])
-        globals.player_card_names.append(deck_card_name[x])
-        globals.player_card_vals.append(deck_card_value[x])
-        return deck_card_name[x], deck_card_value[x]
+def reset_deck():
+    """Resets the deck back to its original state"""
+    global deck
+    deck = {"♥A": 1, "♦A": 1, "♣A": 1, "♠A": 1,  #Full deck of cards
+        "♥2": 2, "♦2": 2, "♣2": 2, "♠2": 2,
+        "♥3": 3, "♦3": 3, "♣3": 3, "♠3": 3,
+        "♥4": 4, "♦4": 4, "♣4": 4, "♠4": 4,
+        "♥5": 5, "♦5": 5, "♣5": 5, "♠5": 5,
+        "♥6": 6, "♦6": 6, "♣6": 6, "♠6": 6,
+        "♥7": 7, "♦7": 7, "♣7": 7, "♠7": 7,
+        "♥8": 8, "♦8": 8, "♣8": 8, "♠8": 8,
+        "♥9": 9, "♦9": 9, "♣9": 9, "♠9": 9,
+        "♥10": 10, "♦10": 10, "♣10": 10, "♠10": 10,
+        "♥J": 10, "♦J": 10, "♣J": 10, "♠J": 10,
+        "♥Q": 10, "♦Q": 10, "♣Q": 10, "♠Q": 10,
+        "♥K": 10, "♦K": 10, "♣K": 10, "♠K": 10}
