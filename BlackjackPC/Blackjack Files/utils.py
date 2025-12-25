@@ -1,4 +1,7 @@
 from time import sleep
+import os
+import colors as c
+import globals
 
 def calc_hand(values):
     """Calculates the total value of a hand"""
@@ -7,32 +10,55 @@ def calc_hand(values):
         total += 10
     return total
 
-def load():
+def load(time_to_wait):
     """A function for slowing things down a bit"""
     for i in range(3):
         print(".", end="")
-        sleep(0.8)
+        sleep(time_to_wait)
     print("\n")
 
 def get_user_input(choice_list: list[str], dev_cmds=False):
     """Checks if user input matches given parameters and loops till it does"""
     user_choice = (input().lower()).replace(" ", "") #Keeps user input not case-sensitive and removes whitespace
-    if user_choice == "dev_cmds":
-        print("Dev cmds enabled.")
     while user_choice not in choice_list:
-        print(f"Invalid input. Try Again. Your choice: {user_choice}")
+        print(f"Invalid input. Try Again.")
         user_choice = (input().lower()).replace(" ", "")
     return user_choice
 
 def main_menu():
     """Prints main menu"""
+    clear_console()
     print("\033[97mWelcome to Swrd's BlackJack Sim! Have fun!\n\033[97m")
     print("Where would you like to go?")
-    print(">Play Game\n"
+    print(">Start\n"
+          ">How To Play\n"
           ">About\n"
-          
           ">Exit\n")
 
+
 def about():
-    """About section"""
-    print("This is a little blackjack game I made to get some experience with programming in python! I hope you enjoy playing it as much as I enjoyed making it!")
+    """About"""
+    clear_console()
+    print(f"American blackjack made with {c.RED}<3{c.B_WHITE} by Swrd34"
+          f"\nPlayer wins: {c.B_YELLOW}{globals.player_wins}{c.B_WHITE}"
+          f"\nDealer wins: {c.B_RED}{globals.dealer_wins}{c.B_WHITE}")
+    input("\n\n\nPress enter to return.")
+
+def htp():
+    """How to play"""
+    clear_console()
+    print("The goal is to get 21 or closest to it. Get cards by hitting, end turn by standing.\nAces are worth 10 if hand is worth 11 or less. Otherwise, they are worth 1.\nDealers always stand on 17 or higher.")
+    input("\n\n\nPress enter to return.")
+
+
+def clear_console():
+    if os.name == 'nt':  # For Windows
+        os.system('cls')
+    else:  # For Linux/macOS
+        os.system('clear')
+
+def end_game_menu():
+    """Ask player if they would like to exit, replay, or go back to main menu"""
+    print(">Replay\n"
+          ">Main Menu\n"
+          ">Exit\n")

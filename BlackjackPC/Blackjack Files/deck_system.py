@@ -1,9 +1,7 @@
 import random
-
-
 import globals
 import utils
-
+import colors as c
 deck = {"♥A": 1, "♦A": 1, "♣A": 1, "♠A": 1,  #Full deck of cards
         "♥2": 2, "♦2": 2, "♣2": 2, "♠2": 2,
         "♥3": 3, "♦3": 3, "♣3": 3, "♠3": 3,
@@ -33,23 +31,42 @@ def deal_cards():
         print("All cards gone.")
         return None
     else:
+        #For player
         pulled_card_name1, pulled_card_val1 = pull_card()# Pulls first card. Unpacks the tuple made in pull_Card so that the name/value can be outputted independently
         pulled_card_name2, pulled_card_val2 = pull_card() #Pulls second card
 
-        globals.cards.extend(list((pulled_card_name1, pulled_card_name2))) #Extend here to add one element at a time so that we don't have any nested lists
-        globals.card_vals.extend(list((pulled_card_val1,pulled_card_val2))) #Same for card value
-        return globals.cards, globals.card_vals
+        #For dealer
+        pulled_card_name3, pulled_card_val3 = pull_card()
+        pulled_card_name4, pulled_card_val4 = pull_card()
+
+        globals.player_card_names.extend(list((pulled_card_name1, pulled_card_name2))) #Extend here to add one element at a time so that we don't have any nested lists
+        globals.player_card_vals.extend(list((pulled_card_val1,pulled_card_val2))) #Same for card value
+
+        globals.dealer_card_names.extend(list((pulled_card_name3,pulled_card_name4)))
+        globals.dealer_card_vals.extend(list((pulled_card_val3, pulled_card_val4)))  # Same for card value
+
+
+        return globals.player_card_names, globals.player_card_vals
 
 def hit():
     """Adds card to player hand"""
+    print("Hitting", end="")
+    utils.load(0.5)
     card_draw_name, card_draw_val = pull_card() #Pulls card, unpacks tuple.
+    globals.player_card_names.append(card_draw_name)  # Appends a card to the global hand variable
+    globals.player_card_vals.append(card_draw_val)  # Appends a card value to the global hand vals variable
+
+    globals.player_hand_val = utils.calc_hand(globals.player_card_vals)
+
     print(f"You drew: {card_draw_name}")
-    globals.cards.append(card_draw_name) #Appends a card to the global hand variable
-    globals.card_vals.append(card_draw_val) #Appends a card value to the global hand vals variable
+    print(f"Your new total value is: {globals.player_hand_val}")
     return card_draw_name
 
 def stand():
-    pass
+    """Player stands"""
+    print("Standing", end="")
+    utils.load(0.5)
+    utils.clear_console()
 
 def display_hand():
     print("You have the cards: ")
